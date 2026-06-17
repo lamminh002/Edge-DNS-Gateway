@@ -2,7 +2,7 @@ name: Update DNS Blocklists
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 8 2,16 * *'
   workflow_dispatch:
 
 permissions:
@@ -14,7 +14,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run update script
         run: |
@@ -22,7 +22,7 @@ jobs:
           ./update_lists.sh
 
       - name: Commit and Push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Auto-update: blocklists and allowlists"
           file_pattern: 'rules/*.txt'
