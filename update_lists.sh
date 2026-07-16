@@ -31,7 +31,7 @@ extract_domains() {
 
 echo "Downloading and processing blocklists..."
 curl -fsSL --max-time 60 \
-https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/domains/light.txt \
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/light-onlydomains.txt \
 | extract_domains > "$BLOCK_TMP"
 
 echo "Downloading and processing allowlists..."
